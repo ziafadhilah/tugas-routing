@@ -1,0 +1,62 @@
+<template>
+  <section>
+    <Header />
+    <div class="container">
+      <div class="action mt-4">
+        <button class="btn btn-outline-secondary" @click="$router.go(-1)">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+      </div>
+      <div v-for="article in articles" :key="article.id">
+        <div
+          class="item-task d-flex align-items-start pt-3 pb-4"
+          v-if="article.id == paramId"
+        >
+          <div>
+            <div class="title-task mb-5">
+              <h1 class="text-center">{{ article.title }}</h1>
+            </div>
+            <div class="description-task small text-muted mb-3">
+              {{ article.content }}
+            </div>
+            <div>
+              <img :src="article.img" class="w-100" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      paramId: this.$route.params.id,
+      articles: [
+        {
+          id: 1,
+          title: "Judul Artikel 1",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolor explicabo sint quos exercitationem fugiat reiciendis assumenda. Ad quia veritatis, dolor odit, voluptas numquam modi porro eius reprehenderit ullam tenetur?",
+          img: "https://images.unsplash.com/photo-1649282806617-c51bb282899c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+        },
+        {
+          id: 2,
+          title: "Judul Artikel 2",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolor explicabo sint quos exercitationem fugiat reiciendis assumenda. Ad quia veritatis, dolor odit, voluptas numquam modi porro eius reprehenderit ullam tenetur?",
+          img: "https://images.unsplash.com/photo-1635732646038-0a1a2fe3f2d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+        },
+        {
+          id: 3,
+          title: "Judul Artikel 3",
+          content:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolor explicabo sint quos exercitationem fugiat reiciendis assumenda. Ad quia veritatis, dolor odit, voluptas numquam modi porro eius reprehenderit ullam tenetur?",
+          img: "https://images.unsplash.com/photo-1640006807976-a6127e9d6fa0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+        },
+      ],
+    };
+  },
+};
+</script>
